@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- the router outlet, where all matched components would ber viewed -->
+  <section class="py-6 px-20 bg-gray-50 border-gray-200 shadow-sm sticky top-0 z-50">
+        <header class="flex justify-between items-center text-center">
+            <div>
+                <router-link v-bind:to="'/'" class="text-xl text-black hidden sm:flex">Some Logo</router-link>
+            </div>
+            <div class="flex items-center font-semibold">
+              <router-link class="mr-5 " v-bind:to="'/'">Store</router-link>
+              <router-link class="mr-5" v-bind:to="'/wishlist'">
+                  <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M9 21h-9v-2h9v2zm6.695-2.88l-3.314-3.13-1.381 1.47 4.699 4.54 8.301-8.441-1.384-1.439-6.921 7zm-6.695-1.144h-9v-2h9v2zm8-3.976h-17v-2h17v2zm7-4h-24v-2h24v2zm0-4h-24v-2h24v2z"/></svg>
+              </router-link>
+              <Cart />
+            </div>
+            
+        </header>  
+      </section> 
+  
+  <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Cart from './components/Cart.vue';
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-    HelloWorld
+    Cart,
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
